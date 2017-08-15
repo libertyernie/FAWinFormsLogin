@@ -14,7 +14,7 @@ namespace Furloader.loginPages
 
     public partial class LoginFormFA : Form
     {
-        public string Cookie = null;
+        public string Cookies = null;
         private FurAffinity _fa;
         public LoginFormFA()
         {
@@ -28,7 +28,7 @@ namespace Furloader.loginPages
             string cookie = _fa.login(username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text);
             if (cookie != null)
             {
-                Cookie = cookie;
+                Cookies = cookie;
                 DialogResult = DialogResult.OK;
                 Close();
                 return;

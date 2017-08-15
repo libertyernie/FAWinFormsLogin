@@ -17,7 +17,11 @@ namespace Furloader
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginFormFA());
+            using (var f = new LoginFormFA()) {
+                if (f.ShowDialog() == DialogResult.OK) {
+                    MessageBox.Show(f.Cookies);
+                }
+            }
             
         }
     }
