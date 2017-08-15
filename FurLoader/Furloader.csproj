@@ -115,7 +115,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebHandler.cs" />
-    <Compile Include="WorkSheduler.cs" />
     <EmbeddedResource Include="Forms\loginPages\LoginFormFA.resx">
       <DependentUpon>LoginFormFA.cs</DependentUpon>
     </EmbeddedResource>

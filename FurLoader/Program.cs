@@ -17,8 +17,7 @@ namespace Furloader
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            WorkSheduler worker = new WorkSheduler();
-            Application.Run(new LoginFormFA(worker, "Furaffinity"));
+            Application.Run(new LoginFormFA());
             
         }
     }

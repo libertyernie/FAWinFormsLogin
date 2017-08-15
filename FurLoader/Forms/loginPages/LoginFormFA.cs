@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Furloader.Sites;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,19 +15,18 @@ namespace Furloader.loginPages
     public partial class LoginFormFA : Form
     {
         public string Cookie = null;
-        private WorkSheduler worker;
-        public LoginFormFA(WorkSheduler worker_, string title)
+        private FurAffinity _fa;
+        public LoginFormFA()
         {
-            worker = worker_;
+            _fa = new FurAffinity();
             InitializeComponent();
-            Text = title;
-            Sites.LoginData data = worker.GetLoginData("furaffinity");
+            Sites.LoginData data = _fa.GetLoginData();
             captcha_PicBox.Image = data.Captcha;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string cookie = worker.loginSite(Text, username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text);
+            string cookie = _fa.login(username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text);
             if (cookie != null)
             {
                 Cookie = cookie;
@@ -35,7 +35,7 @@ namespace Furloader.loginPages
                 return;
             }
             MessageBox.Show("Login Failed");
-            Sites.LoginData data = worker.GetLoginData("furaffinity");
+            Sites.LoginData data = _fa.GetLoginData();
             captcha_PicBox.Image = data.Captcha;
         }
     }
