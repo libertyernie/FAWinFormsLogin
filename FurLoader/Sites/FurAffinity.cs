@@ -6,38 +6,20 @@ using System.Linq;
 
 namespace Furloader.Sites
 {
-    public class FurAffinity : Website
+    public class FurAffinity
     {
-        public override string Name { get { return "furaffinity"; } }
-
         private const string FABase = "https://www.furaffinity.net/";
         private const string FALoginPage = "https://www.furaffinity.net/login/";
-        private const string FACaptcha = "https://furaffinity.net/captcha.jpg";
-
-        private int pos = 0;
 
         private WebHandler webHandler = new WebHandler();
 
-        public override string getCookies() {
+        public string getCookies() {
             Uri fa = new Uri(FABase);
             string cookies = webHandler.getCookies(fa);
             return cookies;
         }
 
-        public override bool checkLogin(string cookies)
-        {
-            if (cookies == "")
-            {
-                return false;
-            }
-
-
-            webHandler.setCookies(cookies);
-
-            return isLoggedIn();
-        }
-
-        public override LoginData GetLoginData()
+        public Image GetCaptcha()
         {
             string html = webHandler.getPage(FALoginPage);
 
@@ -45,10 +27,10 @@ namespace Furloader.Sites
             doc.LoadHtml(html);
             string captchaLink = doc.GetElementbyId("captcha_img").Attributes["src"].Value;
 
-            return new LoginData { Captcha = webHandler.getImage(FABase + captchaLink) };
+            return webHandler.getImage(FABase + captchaLink);
         }
 
-        public override string login(string username, string password, string captcha)
+        public string login(string username, string password, string captcha)
         {
             string postData = string.Format("action=login&name={0}&pass={1}&g-recaptcha-response=&use_old_captcha=1&captcha={2}&login={3}",
                 username,
@@ -65,11 +47,6 @@ namespace Furloader.Sites
                 return cookie;
             }
             return null;
-        }
-
-        private string sourceFromId(string pageSource)
-        {
-            return string.Format("{0}view/{1}/", FABase, pageSource.Remove(0, 3));
         }
 
         private bool isLoggedIn()

@@ -110,7 +110,6 @@
     <Compile Include="Forms\loginPages\LoginFormFA.Designer.cs">
       <DependentUpon>LoginFormFA.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sites\Websites Interface.cs" />
     <Compile Include="Sites\FurAffinity.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

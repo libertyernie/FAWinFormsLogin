@@ -20,8 +20,7 @@ namespace Furloader.loginPages
         {
             _fa = new FurAffinity();
             InitializeComponent();
-            Sites.LoginData data = _fa.GetLoginData();
-            captcha_PicBox.Image = data.Captcha;
+            captcha_PicBox.Image = _fa.GetCaptcha();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -35,8 +34,7 @@ namespace Furloader.loginPages
                 return;
             }
             MessageBox.Show("Login Failed");
-            Sites.LoginData data = _fa.GetLoginData();
-            captcha_PicBox.Image = data.Captcha;
+            captcha_PicBox.Image = _fa.GetCaptcha();
         }
     }
 }
