@@ -13,8 +13,7 @@ namespace Furloader.loginPages
 
     public partial class LoginFormFA : Form
     {
-
-        public bool Success = false;
+        public string Cookie = null;
         private WorkSheduler worker;
         public LoginFormFA(WorkSheduler worker_, string title)
         {
@@ -27,9 +26,10 @@ namespace Furloader.loginPages
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (worker.loginSite(Text, username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text))
+            string cookie = worker.loginSite(Text, username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text);
+            if (cookie != null)
             {
-                Success = true;
+                Cookie = cookie;
                 DialogResult = DialogResult.OK;
                 Close();
                 return;
