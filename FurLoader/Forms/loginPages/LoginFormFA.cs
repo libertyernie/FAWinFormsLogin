@@ -20,21 +20,38 @@ namespace Furloader.loginPages
         {
             _fa = new FurAffinity();
             InitializeComponent();
-            captcha_PicBox.Image = _fa.GetCaptcha();
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
-        {
-            string cookie = _fa.login(username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text);
-            if (cookie != null)
+        private async void LoginFormFA_Load(object sender, EventArgs e) {
+            try
             {
-                Cookies = cookie;
-                DialogResult = DialogResult.OK;
-                Close();
-                return;
+                captcha_PicBox.Image = await _fa.GetCaptchaAsync();
             }
-            MessageBox.Show("Login Failed");
-            captcha_PicBox.Image = _fa.GetCaptcha();
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "Could not load captcha: " + ex.Message, ex.GetType().Name);
+            }
+        }
+
+        private async void loginButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string cookie = await _fa.loginAsync(username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text);
+                if (cookie != null)
+                {
+                    Cookies = cookie;
+                    DialogResult = DialogResult.OK;
+                    Close();
+                    return;
+                }
+                MessageBox.Show("Login Failed");
+                captcha_PicBox.Image = await _fa.GetCaptchaAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "An error occured: " + ex.Message, ex.GetType().Name);
+            }
         }
     }
 }

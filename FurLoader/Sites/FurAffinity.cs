@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Furloader.Sites
 {
@@ -19,7 +20,7 @@ namespace Furloader.Sites
             return cookies;
         }
 
-        public Image GetCaptcha()
+        public async Task<Image> GetCaptchaAsync()
         {
             string html = webHandler.getPage(FALoginPage);
 
@@ -27,10 +28,10 @@ namespace Furloader.Sites
             doc.LoadHtml(html);
             string captchaLink = doc.GetElementbyId("captcha_img").Attributes["src"].Value;
 
-            return webHandler.getImage(FABase + captchaLink);
+            return await webHandler.getImageAsync(FABase + captchaLink);
         }
 
-        public string login(string username, string password, string captcha)
+        public async Task<string> loginAsync(string username, string password, string captcha)
         {
             string postData = string.Format("action=login&name={0}&pass={1}&g-recaptcha-response=&use_old_captcha=1&captcha={2}&login={3}",
                 username,
@@ -38,9 +39,9 @@ namespace Furloader.Sites
                 captcha,
                 "Login to%C2%A0FurAffinity");
 
-            webHandler.getPage(FALoginPage + "?ref=https://furaffinity.net/", postData);
+            await webHandler.getPageAsync(FALoginPage + "?ref=https://furaffinity.net/", postData);
 
-            if (isLoggedIn())
+            if (await isLoggedInAsync())
             {
                 Uri uri = new Uri(FABase);
                 string cookie = webHandler.getCookies(uri);
@@ -49,10 +50,10 @@ namespace Furloader.Sites
             return null;
         }
 
-        private bool isLoggedIn()
+        private async Task<bool> isLoggedInAsync()
         {
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            string web = webHandler.getPage(FABase);
+            string web = await webHandler.getPageAsync(FABase);
             doc.LoadHtml(web);
             HtmlNode node = doc.DocumentNode.SelectSingleNode("//a[@href='/submit/']");
 
