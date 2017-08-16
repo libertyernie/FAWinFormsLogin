@@ -1,5 +1,3 @@
-# FurLoader
+This branch contains a standalone version of [Furloader's](https://github.com/Kycklingar/Furloader) FurAffinity login window.
 
-![alt tag](https://ipfs.io/ipfs/QmUvXBXjuxt81quDRzxtqj822shQiKzpzWZG67k1UKmf2H)
-
-Download win_x64: https://ipfs.io/ipfs/zdj7WmkPJ8bbtqVZgzzLhsA3ucPWvHYpRcEn39YW5vrCw731k/FurLoader.zip
+![](https://i.imgur.com/o7McH6l.png)
