@@ -37,6 +37,7 @@ namespace FAWinFormsLogin.loginPages
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
+            loginButton.Enabled = false;
             try
             {
                 var cookies = await _fa.loginAsync(username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text);
@@ -55,6 +56,7 @@ namespace FAWinFormsLogin.loginPages
             {
                 MessageBox.Show(this, "An error occured: " + ex.Message, ex.GetType().Name);
             }
+            loginButton.Enabled = true;
         }
     }
 }
