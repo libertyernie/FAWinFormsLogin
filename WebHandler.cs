@@ -57,6 +57,12 @@ namespace FAWinFormsLogin
             return cookie;
         }
 
+        public string getCookie(Uri uri, string name)
+        {
+            CookieCollection cookies = cookiesContainer.GetCookies(uri);
+            return cookies[name].Value;
+        }
+
         public string getPage(string URL)
         {
             Uri URI = new Uri(URL);

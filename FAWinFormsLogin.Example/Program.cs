@@ -16,7 +16,7 @@ namespace FAWinFormsLogin.Example {
             Application.SetCompatibleTextRenderingDefault(false);
             using (var f = new LoginFormFA()) {
                 if (f.ShowDialog() == DialogResult.OK) {
-                    MessageBox.Show(f.Cookies);
+                    MessageBox.Show($"b={f.BCookie}\na={f.ACookie}");
                 }
             }
         }

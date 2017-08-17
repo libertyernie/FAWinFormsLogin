@@ -14,8 +14,10 @@ namespace FAWinFormsLogin.loginPages
 
     public partial class LoginFormFA : Form
     {
-        public string Cookies = null;
+        public string BCookie = null;
+        public string ACookie = null;
         private FurAffinity _fa;
+
         public LoginFormFA()
         {
             _fa = new FurAffinity();
@@ -37,10 +39,11 @@ namespace FAWinFormsLogin.loginPages
         {
             try
             {
-                string cookie = await _fa.loginAsync(username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text);
-                if (cookie != null)
+                var cookies = await _fa.loginAsync(username_TxtBox.Text, password_TxtBox.Text, captcha_TxtBox.Text);
+                if (cookies != null)
                 {
-                    Cookies = cookie;
+                    BCookie = cookies.Value.b;
+                    ACookie = cookies.Value.a;
                     DialogResult = DialogResult.OK;
                     Close();
                     return;
