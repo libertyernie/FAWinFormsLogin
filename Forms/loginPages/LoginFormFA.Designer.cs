@@ -1,4 +1,4 @@
-﻿namespace Furloader.loginPages
+﻿namespace FAWinFormsLogin.loginPages
 {
     partial class LoginFormFA
     {

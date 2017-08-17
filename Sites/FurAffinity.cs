@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Furloader.Sites
+namespace FAWinFormsLogin.Sites
 {
     public class FurAffinity
     {

@@ -1,4 +1,4 @@
-﻿using Furloader.Sites;
+﻿using FAWinFormsLogin.Sites;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Furloader.loginPages
+namespace FAWinFormsLogin.loginPages
 {
 
     public partial class LoginFormFA : Form

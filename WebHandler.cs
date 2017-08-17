@@ -5,7 +5,7 @@ using System.IO;
 using System.Drawing;
 using System.Threading.Tasks;
 
-namespace Furloader
+namespace FAWinFormsLogin
 {
     class WebHandler
     {

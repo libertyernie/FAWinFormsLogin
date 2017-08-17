@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BA0498F5-3CDD-4E4D-9650-504246A741F1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Furloader.Example</RootNamespace>
-    <AssemblyName>Furloader.Example</AssemblyName>
+    <RootNamespace>FAWinFormsLogin.Example</RootNamespace>
+    <AssemblyName>FAWinFormsLogin.Example</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -70,9 +70,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Furloader.csproj">
+    <ProjectReference Include="..\FAWinFormsLogin.csproj">
       <Project>{5939939E-B9B0-4766-AFB9-4FFF83C16FB8}</Project>
-      <Name>Furloader</Name>
+      <Name>FAWinFormsLogin</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

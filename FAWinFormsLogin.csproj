@@ -7,8 +7,8 @@
     <ProjectGuid>{5939939E-B9B0-4766-AFB9-4FFF83C16FB8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Furloader</RootNamespace>
-    <AssemblyName>FurLoader</AssemblyName>
+    <RootNamespace>FAWinFormsLogin</RootNamespace>
+    <AssemblyName>FAWinFormsLogin</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -59,7 +59,7 @@
     <ManifestCertificateThumbprint>86946501BAECB982BB4BBA45289D0E5DCA098747</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Furloader_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>FAWinFormsLogin_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
