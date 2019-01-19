@@ -11,6 +11,7 @@ namespace FAWinFormsLogin
     {
         private CookieContainer cookiesContainer;
         private const string useragent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36";
+
         private string refer = "";
         public WebHandler()
         {
@@ -63,7 +64,7 @@ namespace FAWinFormsLogin
             return cookies[name].Value;
         }
 
-        public string getPage(string URL)
+        public string getPage(string URL, bool decode=true)
         {
             Uri URI = new Uri(URL);
             string result;
@@ -79,7 +80,8 @@ namespace FAWinFormsLogin
                 var reader = new StreamReader(stream);
                 result = reader.ReadToEnd();
 
-                result = WebUtility.HtmlDecode(result);
+                if(decode)
+                    result = WebUtility.HtmlDecode(result);
 
             }
             return result;
